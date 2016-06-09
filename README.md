@@ -1,6 +1,6 @@
-# MyHero Web Service
+# MyHero Admin Service
 
-This is the Web Service for a basic microservice demo application.
+This is the Admin Service for a basic microservice demo application.
 This provides a web front end into a voting system where users can vote for their favorite movie superhero.
 
 Details on deploying the entire demo to a Mantl cluster can be found at
@@ -18,6 +18,7 @@ Other services are:
   * Optional Service that allows voting through IM/Chat with a Cisco Spark Bot
 * Tropo App - [hpreston/myhero_tropo](https://github.com/hpreston/myhero_tropo)
   * Optional Service that allows voting through TXT/SMS messaging
+* Admin - [pbusque/myhero_admin](https://github.com/busquep1/myhero_admin)
 
 
 The docker containers are available at
@@ -30,6 +31,7 @@ The docker containers are available at
   * Optional Service that allows voting through IM/Chat with a Cisco Spark Bot
 * Tropo App - [hpreston/myhero_tropo](https://hub.docker.com/r/hpreston/myhero_tropo)
   * Optional Service that allows voting through TXT/SMS messaging
+* Admin - [pbusque/myhero_admin](https://hub.docker.com/r/busquep1/myhero_admin)
 
 ## Basic Application Details
 
@@ -75,8 +77,8 @@ I've included the configuration files needed to do local development with Vagran
 To start local development run:
 * `vagrant up`
   * You may need to run this twice.  The first time to start the docker host, and the second to start the container.
-* Now you can interact with the API or interface at localhost:15002 (configured in Vagrantfile and Vagrantfile.host)
-  * example:  from your local machine open http://localhost:15002 in a web browser
+* Now you can interact with the API or interface at localhost:15004 (configured in Vagrantfile and Vagrantfile.host)
+  * example:  from your local machine open http://localhost:15004 in a web browser
   * Environment Variables are configured in Vagrantfile for development
 
 Each of the services in the application (i.e. myhero_web, myhero_app, and myhero_data) include Vagrant support to allow working locally on all three simultaneously.
