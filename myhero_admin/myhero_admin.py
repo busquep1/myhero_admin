@@ -50,20 +50,20 @@ def results():
     app_requests_headers = {"key": app_key}
     page = requests.get(u, headers=app_requests_headers)
     options = page.json()
-    hero_list = options["options"]    
+    hero_list = options["options"]
 
     #u = app_server + "/results"
     #app_requests_headers = {"key": app_key}
     #page = requests.get(u, headers=app_requests_headers)
     # Display the timestamp of the results based on informaiton passed by the APP server
-    try:
-        timestamp = page.headers["data_timestamp"]
-        timestamp = datetime.datetime.strptime(timestamp, '%Y-%m-%d %H:%M:%S.%f')
-    except:
-        timestamp = datetime.datetime.now()
-    tally = page.json()
+    #try:
+    #    timestamp = page.headers["data_timestamp"]
+    #    timestamp = datetime.datetime.strptime(timestamp, '%Y-%m-%d %H:%M:%S.%f')
+    #except:
+    #    timestamp = datetime.datetime.now()
+    #tally = page.json()
 
-    tally = sorted(tally.items(), key = lambda (k,v): v, reverse=True)
+    #tally = sorted(tally.items(), key = lambda (k,v): v, reverse=True)
     #return render_template('results.html', tally = tally, title="Results", current_time=timestamp)
     return render_template('home.html', hero_list=hero_list, title="Microservice Demo Application Admin Interface", current_time=datetime.datetime.now())
 
