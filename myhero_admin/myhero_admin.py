@@ -40,9 +40,11 @@ def results():
     # Check for submitted vote
     vote = request.args.get('hero')
     if (vote):
-        uv = app_server + "/vote/" + vote
+        uv = app_server + "/options/" + vote
         app_requests_headers = {"key": app_key}
-        vpage = requests.post(uv, headers=app_requests_headers)
+        #vpage = requests.post(uv, headers=app_requests_headers)
+        #vpage = requests.delete('http://localhost:15001/options/Robin', headers=app_requests_headers)
+        vpage = requests.delete(uv, headers=app_requests_headers)
 
     u = app_server + "/results"
     app_requests_headers = {"key": app_key}

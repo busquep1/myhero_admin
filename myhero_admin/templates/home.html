@@ -2,7 +2,7 @@
 
 
 {% block content %}
-  <h3>Place your vote for the best on-screen Super-Hero!</h3>
+  <h3>Which Super-Hero option would you like to remove?</h3>
   <!--- <h4>Current date/time: {{ current_time | datetimefilter }}</h4> --->
   <br>
   <form action="/results">
@@ -10,7 +10,7 @@
     <input type="radio" name="hero" value="{{ n }}">{{ n }}<br>
     {% endfor %}
   <br>
-  <input type="submit" value="Vote!">
+  <input type="submit" value="Delete!">
   </form>
   {% block footer %}
     {{ super() }}
