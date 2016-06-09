@@ -29,7 +29,7 @@ def template_test():
     options = page.json()
     hero_list = options["options"]
 
-    return render_template('home.html', hero_list=hero_list, title="Microservice Demo Application", current_time=datetime.datetime.now())
+    return render_template('home.html', hero_list=hero_list, title="Microservice Demo Application Admin Interface", current_time=datetime.datetime.now())
 
 @app.route("/about")
 def about():
@@ -46,9 +46,15 @@ def results():
         #vpage = requests.delete('http://localhost:15001/options/Robin', headers=app_requests_headers)
         vpage = requests.delete(uv, headers=app_requests_headers)
 
-    u = app_server + "/results"
+    u = app_server + "/options"
     app_requests_headers = {"key": app_key}
     page = requests.get(u, headers=app_requests_headers)
+    options = page.json()
+    hero_list = options["options"]    
+
+    #u = app_server + "/results"
+    #app_requests_headers = {"key": app_key}
+    #page = requests.get(u, headers=app_requests_headers)
     # Display the timestamp of the results based on informaiton passed by the APP server
     try:
         timestamp = page.headers["data_timestamp"]
@@ -58,7 +64,8 @@ def results():
     tally = page.json()
 
     tally = sorted(tally.items(), key = lambda (k,v): v, reverse=True)
-    return render_template('results.html', tally = tally, title="Results", current_time=timestamp)
+    #return render_template('results.html', tally = tally, title="Results", current_time=timestamp)
+    return render_template('home.html', hero_list=hero_list, title="Microservice Demo Application Admin Interface", current_time=datetime.datetime.now())
 
 @app.template_filter()
 def datetimefilter(value, format='%Y/%m/%d %H:%M'):

@@ -6358,7 +6358,9 @@ th.visible-print, td.visible-print {
     th.hidden-print, td.hidden-print {
         display: none !important
     }
-}
-.container-fluid{
-  background-color:#D63A3A;
+    .container-fluid{
+      background-color:#D63A3A;
+    }
+
+
 }
